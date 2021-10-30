@@ -1,2 +1,2 @@
 # compass-demo-front
-Front end demo para compass
+En el archivo .env se puede asignar la variable "API_URL" pare especificar la url del backend.
