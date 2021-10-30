@@ -1,0 +1,21 @@
+.PostTag {
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: white;
+}
+
+.CHOPPER {
+    background-color: limegreen;
+}
+
+.ROUTE {
+    background-color: dodgerblue;
+}
+
+.ENDURANCE {
+    background-color: sandybrown;
+}
+
+.SCOOTER {
+    background-color: hotpink;
+}
