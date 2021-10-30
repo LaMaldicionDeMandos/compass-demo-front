@@ -3,14 +3,23 @@ import {find} from 'lodash';
 const API_URL = process.env.REACT_APP_API_URL;
 class PostService {
 
-    async allPosts() {
-        this.#posts = await fetch(`${API_URL}/posts`)
-            .then(res => res.json());
-        return this.#posts;
+    allPosts() {
+        return this.#getPosts();
     }
 
-    findPost(id) {
-        return Promise.resolve(find(this.#posts,{id: id}));
+    async findPost(id) {
+        const posts = await this.#getPosts();
+        return find(posts,{id: id});
+    }
+
+    #loadAllPosts = () => {
+        return fetch(`${API_URL}/posts`)
+            .then(res => res.json())
+            .then(o => o.posts);
+    }
+
+    #getPosts = () => {
+        return this.#posts ? Promise.resolve(this.#posts) : this.#loadAllPosts();
     }
 
     #posts = undefined;
